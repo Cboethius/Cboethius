@@ -11,6 +11,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" referrerpolicy="no-referrer"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.js" integrity="sha512-judXDFLnOTJsUwd55lhbrX3uSoSQSOZR6vNrsll+4ViUFv+XOIr/xaIK96soMj6s5jVszd7I97a0H+WhgFwTEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js" integrity="sha512-mq6TSOBEH8eoYFBvyDQOQf63xgTeAk7ps+MHGLWZ6Byz0BqQzrP+3GIgYL+KvLaWgpL8XgDVbIRYQeLa3Vqu6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CustomEase.min.js"></script>
     <script defer src="test.js"></script>
 </head>
 <style>
@@ -24,80 +25,47 @@
     box-sizing: border-box;
     }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10;
-  background-color: white;
-  width: 500px;
-  max-width: 80%;
-}
+  body{
+  
+    display: flex;
+    align-content: center;
+    height: 500px;
+  }
 
-.modal.active {
-  transform: translate(-50%, -50%) scale(1);
-}
+  .rosebox{
+    position: relative;
+    margin-top: 15rem;
+    height: 300px;
+    width: 200px;
+  }
 
-.modal-header {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid black;
-}
 
-.modal-header .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
+  .rosebox img{
+    position: absolute;
+    height: 300px;
+    width: 200px;
+  }
 
-.modal-header .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
 
-.modal-body {
-  padding: 10px 15px;
-}
 
-#overlay {
-  position: fixed;
+.rose2{
   opacity: 0;
-  transition: 200ms ease-in-out;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
-  pointer-events: none;
 }
 
-#overlay.active {
-  opacity: 1;
-  pointer-events: all;
+.rose3{
+  opacity: 0;
 }
+
+.rose4{
+  opacity: 0;
+}
+
 
 </style>
 <body>
+  <div class="rosebox">
+     <img class="rose1" src="images/flowerpeddle.svg" alt="">
+  </div>
 
-<button data-modal-target="#modal">Open Modal</button>
-    <div class="modal" id="modal">
-        <div class="modal-header">
-            <div class="title">Example Modal</div>
-        <button data-close-button class="close-button">&times;</button>
-            </div>
-        <div class="modal-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut illo doloremque eum ipsum obcaecati distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt necessitatibus, consectetur quisquam accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at ad autem dolor ex aperiam. Amet assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint officiis perferendis atque! Voluptatem maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae nobis nesciunt sequi iure! Eligendi, eius libero. Ex, repellat sapiente!
-        </div>
-    </div>
-    <div id="overlay"></div>
 </body>
 </html>

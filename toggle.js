@@ -1,24 +1,4 @@
 
-// if(document.documentElement.clientWidth > 790 ) {
-
-
-// const map_ftr = gsap.timeline()
-
-// map_ftr.to(".map", {
-//         x: 700,
-//         duration: 3,
-//        scrollTrigger: { 
-//         tigger: ".map",
-//         start: "top center",
-//         end: () => `+=${document.querySelector(".map").offsetHeight}`,
-//         markers: {
-//             startColor: "green",
-//             endColor: "red",
-//             fontSize: ".8rem",
-//             indent: 200,
-//         },
-//     }
-//     })
 
 
 if(document.documentElement.clientWidth > 700 ) {
@@ -35,8 +15,7 @@ if(document.documentElement.clientWidth > 700 ) {
         timeline
         .to('#citybot', 6, {
             y: 0,
-        
-        })
+         })
         .to('#citytop', 6, {
             y: 0
         }, '-=6 ')
@@ -47,8 +26,8 @@ if(document.documentElement.clientWidth > 700 ) {
             y: 130
         }, '-=4')
         .to('#mttop', 4, {
-            y: 160
-        }, '-=4.2')
+            y: 160,
+        }, '-=4.4')
        
     
     
@@ -66,14 +45,14 @@ if(document.documentElement.clientWidth > 700 ) {
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".map", {
-    x:-100,
+    x:-50,
     duration: 3,
     opacity: 100,
     scrollTrigger:{
         trigger: ".map",
         start: "top 60%",
         end: "top 100%",
-        scrub: 2,
+        scrub: 1,
         toggleActions: "restart reverse none none",
     //     markers:{
     //         startColor: "red",
@@ -83,14 +62,14 @@ gsap.to(".map", {
     }
 })
 gsap.to(".contact_text", {
-    x: 200,
+    x: 100,
     opacity: 100,
     duration: 3,
     scrollTrigger:{
         trigger: ".contact_text",
         start: "top 60%",
         end: "top 100%",
-        scrub: 2,
+        scrub: 1,
         toggleActions: "restart reverse none",
         // markers:{
         //     startColor: "red",
@@ -100,34 +79,32 @@ gsap.to(".contact_text", {
     }
 })
 
-// Get DOM Elements
-const modal = document.querySelector('#my-modal');
-const modalBtn = document.querySelector('#modal-btn');
-const closeBtn = document.querySelector('.close');
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
 
-// Events
-modalBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
 
-// Open
-function openModal() {
-  modal.style.display = 'block';
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
 }
 
-// Close
-function closeModal() {
-  modal.style.display = 'none';
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
 }
-
-// Close If Outside Click
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = 'none';
-  }
-}
-
-
 
 
 

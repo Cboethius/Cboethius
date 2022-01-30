@@ -12,6 +12,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.js" integrity="sha512-judXDFLnOTJsUwd55lhbrX3uSoSQSOZR6vNrsll+4ViUFv+XOIr/xaIK96soMj6s5jVszd7I97a0H+WhgFwTEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.js" integrity="sha512-mq6TSOBEH8eoYFBvyDQOQf63xgTeAk7ps+MHGLWZ6Byz0BqQzrP+3GIgYL+KvLaWgpL8XgDVbIRYQeLa3Vqu6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CustomEase.min.js"></script>
     <script defer src="code.js"></script>
     <script defer src="toggle.js"></script>
 </head>
@@ -26,9 +27,23 @@
     box-sizing: border-box;
     }
 
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 170vh;
+    }
+
+    .banner{
+        position: relative;
+        height: 1000px;
+        width: 1000px;
+        overflow: hidden;
+    }
+
     header{
         position: relative;
-        height: 700px;
+        height: 500px;
         width: 100%;
         background-color: white;
     }
@@ -40,28 +55,6 @@
         width: 100%;
     }
 
-    .twolip{
-        z-index: 10;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-        background-repeat: no-repeat;
-        background-size: 500px;
-        height: 600px;
-        overflow: hidden;
-    }
-
-    .twolip2{
-        z-index: 1;
-        left: 0;
-        top: 0;
-        position: absolute;
-        height: 440px;
-        width: 400px;
-        background-repeat: no-repeat;
-        background-size: 400px;
-    }
-
     .headtext{
         position: absolute;
         display: flex;
@@ -71,10 +64,51 @@
         flex-direction: column;
         color:  white;
         font-size: 2rem;
-        height: 700px;
+        height: 500px;
         width: 100%;
         z-index: 2;
     }
+
+    .cta{
+        position:absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        height: 200px;
+        width: 100%;
+        z-index: 5;
+    }
+
+    .cta a{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1b493c; 
+        height: 40px;
+        width: 100px;
+        text-decoration: none;
+        color: white;
+        transition: 100ms ease-out;
+        font-family: "mill", Arial, Helvetica, sans-serif;
+    }
+
+    .cta a:hover{
+        font-size: 1.4rem;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1b493c; 
+        height: 50px;
+        width: 100px;
+        text-decoration: none;
+        color: white;
+    }
+
+
 
     @font-face {
         font-family: "mill";
@@ -85,6 +119,7 @@
         font-family: "mill", Arial, Helvetica, sans-serif;
         padding: 3rem;
         color:#1b493c;
+        font-size: 3rem;
     }
     
     h2{
@@ -102,12 +137,12 @@
     }
 
     nav{
-        z-index: 60;
-        position: fixed;
-        height: 100%;
+        z-index: 80;
+        position: relative;
+        height: 500px;
         width:  100px;
         background: #1b493c;
-        box-shadow: #080a08 3px -3px 30px 0px;
+        /* box-shadow: #080a08 3px -3px 30px 0px; */
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -116,7 +151,7 @@
     nav div{
         background: #1b493c;
         color:  white;
-        height: 100%;
+        height: 500px;
         width: 100px;
         display: flex;
         justify-content: center;
@@ -124,8 +159,6 @@
         font-family: "mill", Arial, Helvetica, sans-serif;
         cursor: pointer;
         transition: 1000ms ease-in-out;
-        
-    
     }
 
     nav div:hover{
@@ -140,33 +173,140 @@
         /* font-family: "mill", Arial, Helvetica, sans-serif; */
     }
 
-    .modal{
-        box-shadow: #080a08 0px 10px 30px 1px;
+    .flowerrotation{
         position: relative;
-        height: 500px;
-        width: 50%;
-        z-index: 5;
-        margin-top: 8rem;
-        transform: translateX(55%);
-        position: fixed;
-        z-index: 100;
-        background-color: rgba(255, 255, 255, 0.966);
-        display: none;
+        height: auto;
+        width: 1250px;
     }
-    .close {
+
+    .big{
+        right: 0;
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        transform: translateY(-5%);
+        z-index: 5;
+    }
+    
+    .mid{
+        right: 0;
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        transform: translateY(-5%);
+        z-index: 6;
+    }
+
+    .small{
+        right: 0;
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        transform: translateY(-5%);
+        z-index: 7;
+    }
+
+    .peddles{
+        position: absolute;
+        right: 0;
+        height: 300px;
+        width: 200px;
+        transform: translateY(50%);
+        z-index: 4;
+    }
+
+
+    .peddles1{
+        position: absolute;
+        right: 0;
+        height: 200px;
+        width: 150px;
+        transform: translateY(50%);
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .peddles2{
+        position: absolute;
+        right: 0;
+        height: 150px;
+        width: 100px;
+        transform: translateY(70%);
+        z-index: 6;
+        opacity: 0;
+    }
+    
+
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        height: 300px;
+        width: 400px;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 200ms ease-in-out;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.932);
+        width: 500px;
+        max-width: 80%;
+        box-shadow: #080a08 0px 10px 30px 1px;
+    }
+
+    .modal.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .close-button {
+        right: 0;
         color: rgb(134, 134, 134);
         float: right;
         font-size: 30px;
         padding-right: 1rem;
-        padding-top: 0.2rem;
-        }
+        padding-left: 1rem;
+        background: none;
+        border: none;
+    }
 
     .close:hover,
     .close:focus {
         color: #000;
         text-decoration: none;
         cursor: pointer;
-        }
+    }
+
+    .arrowlights {
+        position: absolute;
+        top: 0;
+        transform: translateX(1385%);
+        margin-top: -5.5rem;
+        height: 152px;
+        width: 15px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .arrowlights p{
+        color: white;
+        font-size: 2rem;
+        font-family: "mill", Arial, Helvetica, sans-serif;
+    }
+
+    .block{
+        display: flex;
+        justify-content: center;
+        height: 10px;
+        width: 6px;
+        opacity: 0;
+    }
+
+    .arrow{
+        height: 10px;
+        width: 10px;
+        opacity: 0;
+    }
 
     .Zurich {
         position: relative;
@@ -309,84 +449,218 @@
         margin-left: 0.2rem;
     }
 
+    button{
+        z-index: 200;
+        position: absolute;
+    }
 
+    .modal-flower{
+        position: absolute;
+        height: 300px;
+        width: 250px;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .modal-flower1{
+        position: absolute;
+        height: 250px;
+        width: 300px;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .modal-flower2{
+        position: absolute;
+        height: 400px;
+        width: 300px;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+
+    .modal-flower3{
+        position: absolute;
+        height: 300px;
+        width: 400px;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .modal h3{
+        color: #1b493c;
+        background: none;
+        padding: 1rem;
+        font-family: "mill", Arial, Helvetica, sans-serif;
+        font-size: 1.4rem;
+    }
+
+    .modal p{
+        color: #1b493c;
+        background: none;
+        padding: 0rem 0rem 2rem 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+        height: 173px;
+        width:200px;
+        z-index: 3;
+    }
+
+    .modal a{
+        color: white;
+        background: #1b493c; 
+        padding: 1rem;
+        height: 30px;
+        width: 50px;
+        text-decoration: none;
+        transition: 100ms ease-out;
+    }
 
 
 </style>
+
 <body>
 
-    <!-- nav bar  -->
+    <div class="banner">
 
-    <!-- header -->
+        <!-- nav bar  -->
+         <header>
 
-    <header>
-
-        <div id="my-modal" class="modal">
-            <span class="close">&times;</span>
-            <div class="imgflower"></div>
-            <div>
-                <h4>tulpen</h4>
-                <p class="info_text"></p>
-                <button class="buy_btn">Kuafen</button>
+            <div class="flowerrotation">
+                <img class="big" src="images/flowebig.svg" alt="">
+                <img class="mid" src="images/flowermid.svg" alt="">
+                <img class="small" src="images/flowersmall.svg" alt="">
             </div>
-        </div>
 
-        <div class="headtext">
-            <h1></h1>
-            <h2>BLUMENHALLE</h2>
-        </div>
+            <div class="rosebox">
+                <img class="peddles" src="images/flowerpeddle.svg" alt="">
+                <img class="peddles1" src="images/flowerpeedle1.svg" alt="">
+                <img class="peddles2" src="images/flowerpeddle2.svg" alt="">
+             </div>
 
-        <nav class="nav">
-            <div id="modal-btn"class="tulpen"></div>
-            <div class="ranunkeln"></div>
-            <div class="anemonen "></div>
-            <div class="mohn"></div>
-            <div class="hyazinthe"></div>
-            <div class="iris"></div>
-        </nav>
+            <div class="modal" id="modal">
+               <button data-close-button class="close-button">&times;</button>
+               <h3>Tulpen</h3>
+               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt doloribus corrupti itaque delectus atque sit reprehenderit maiores maxime exercitationem, veritatis quis nemo quisquam sequi impedit laboriosam officia! Consectetur, accusantium! Esse?</p>
+               <a href=https://www.blumenhalle.ch>Shop</a>
+               <img class="modal-flower" src="images/twolips copy.png" alt="">
+            </div>
 
-        <div class="zurich" id="zh">
-            <img class="mttop" id="mttop" src="images/Mttop.svg">
-            <img class="mtmid" id="mtmid" src="images/Mtmiddle.svg">
-            <img class="mtbot" id="mtbot" src="images/Mtbottom.svg">
-            <img class="citytop" id="citytop" src="images/Citytop.svg">
-            <img class="citybot" id="citybot" src="images/Citybottom.svg">
-        </div>
-        <img class="twolip" src="images/twolips.png">
-        <img class="twolip2" src="images/twolip2.png">
+            <div class="modal" id="modal1">
+                <button data-close-button class="close-button">&times;</button>
+                <h3>Ramunkeln</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt doloribus corrupti itaque delectus atque sit reprehenderit maiores maxime exercitationem, veritatis quis nemo quisquam sequi impedit laboriosam officia! Consectetur, accusantium! Esse?</p>
+                <a href=https://www.blumenhalle.ch>Shop</a>
+                <img class="modal-flower" src="images/Ramunculus.png" alt="">
+             </div>
 
-    </header>
+             <div class="modal" id="modal2">
+                <button data-close-button class="close-button">&times;</button>
+                <h3>Anemones</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt doloribus corrupti itaque delectus atque sit reprehenderit maiores maxime exercitationem, veritatis quis nemo quisquam sequi impedit laboriosam officia! Consectetur, accusantium! Esse?</p>
+                <a href=https://www.blumenhalle.ch>Shop</a>
+                <img class="modal-flower1" src="images/anemones.png" alt="">
+             </div>
 
-    <section class="contact">
-        <div class="contact_text">
-            <h3>Geschäfte in <br> meiner Nähe</h3>
+             <div class="modal" id="modal3">
+                <button data-close-button class="close-button">&times;</button>
+                <h3>Mohn</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt doloribus corrupti itaque delectus atque sit reprehenderit maiores maxime exercitationem, veritatis quis nemo quisquam sequi impedit laboriosam officia! Consectetur, accusantium! Esse?</p>
+                <a href=https://www.blumenhalle.ch>Shop</a>
+                <img class="modal-flower3" src="images/poppy.png" alt="">
+             </div>
 
-            <h4>Blumenhalle Markt
-                <img class="flower_text" src="images/flowerMap1.svg" alt="">
-                <p>Molkenstrasse 17 * 043 243 88 15</p>
-            </h4>
+             <div class="modal" id="modal4">
+                <button data-close-button class="close-button">&times;</button>
+                <h3>Hyazinthe</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt doloribus corrupti itaque delectus atque sit reprehenderit maiores maxime exercitationem, veritatis quis nemo quisquam sequi impedit laboriosam officia! Consectetur, accusantium! Esse?</p>
+                <a href=https://www.blumenhalle.ch>Shop</a>
+                <img class="modal-flower2" src="images/hyacinth.png" alt="">
+             </div>
 
-            <h4> Blumenhalle Spring AG
-                <img class="flower_text" src="images/flowerMap.svg" alt="">
-                <p>
-                    Talacker 30 * 044 211 71 46</p>
-            </h4>
+             <div class="modal" id="modal5">
+                <button data-close-button class="close-button">&times;</button>
+                <h3>Iris</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt doloribus corrupti itaque delectus atque sit reprehenderit maiores maxime exercitationem, veritatis quis nemo quisquam sequi impedit laboriosam officia! Consectetur, accusantium! Esse?</p>
+                <a href=https://www.blumenhalle.ch>Shop</a>
+                <img class="modal-flower3" src="images/iris.png" alt="">
+             </div>
 
-            <h4>Blumenhalle Wollishofen AG
-                <img class="flower_text" src="images/flowerMap2.svg" alt="">
-                <p>Studackerstrasse 8 * 044 482 41 42</p>
-            </h4>
+
+            <div class="headtext">
+                <h1></h1>
+                <h2>BLUMENHALLE</h2>
+            </div>
+
+            <div class="cta">
+                <a href=https://www.blumenhalle.ch>Shop</a>
+            </div>
+
+            <nav class="nav" id="nav">
+                <div data-modal-target="#modal" id="modal-tulpen"class="tulpen"></div>
+                <div data-modal-target="#modal1" id="modal-ramunkeln" class="ranunkeln"></div>
+                <div data-modal-target="#modal2" id="modal-anemonen" class="anemonen"></div>
+                <div data-modal-target="#modal3" id="modal-mohn" class="mohn"></div>
+                <div data-modal-target="#modal4" id="modal-hyazinthe" class="hyazinthe"></div>
+                <div data-modal-target="#modal5" id="modal-iris" class="iris"></div>
+            </nav>
+
+            <div class="zurich" id="zh">
+                <img class="mttop" id="mttop" src="images/Mttop.svg">
+                <img class="mtmid" id="mtmid" src="images/Mtmiddle.svg">
+                <img class="mtbot" id="mtbot" src="images/Mtbottom.svg">
+                <img class="citytop" id="citytop" src="images/Citytop.svg">
+                <img class="citybot" id="citybot" src="images/Citybottom.svg">
+            </div>
+
+        </header>
+
+        <section class="contact">
+
+            <div class="arrowlights">
+                <img class="block block1" src="images/block1.svg" alt="">
+                <img class="block block2" src="images/block2.svg" alt="">
+                <img class="block block3" src="images/block3.svg" alt="">
+                <img class="block block4" src="images/block4.svg" alt="">
+                <img class="block block5" src="images/block5.svg" alt="">
+                <img class="arrow" src="images/arrow.svg" alt="">
+                <p>Loaction</p>
+            </div>
             
-        </div>
-        <div class="map">
-            <img src="images/map.svg" alt="">
-            <div class="flowermap">
-                <img class="flowermap1" src="images/flowerMap.svg" alt="">
-                <img class="flowermap2" src="images/flowerMap1.svg" alt="">
-                <img class="flowermap3" src="images/flowerMap2.svg" alt="">
+            <div class="contact_text">
+                <h3>Geschäfte in <br> meiner Nähe</h3>
+
+                <h4>Blumenhalle Markt
+                    <img class="flower_text" src="images/flowerMap1.svg" alt="">
+                    <p>Molkenstrasse 17 * 043 243 88 15</p>
+                </h4>
+
+                <h4> Blumenhalle Spring AG
+                    <img class="flower_text" src="images/flowerMap.svg" alt="">
+                    <p>
+                        Talacker 30 * 044 211 71 46</p>
+                </h4>
+
+                <h4>Blumenhalle Wollishofen AG
+                    <img class="flower_text" src="images/flowerMap2.svg" alt="">
+                    <p>Studackerstrasse 8 * 044 482 41 42</p>
+                </h4>
+                
             </div>
-        </div>
-    </section>
-    
+            <div class="map">
+                <img src="images/map.svg" alt="">
+                <div class="flowermap">
+                    <img class="flowermap1" src="images/flowerMap.svg" alt="">
+                    <img class="flowermap2" src="images/flowerMap1.svg" alt="">
+                    <img class="flowermap3" src="images/flowerMap2.svg" alt="">
+                </div>
+            </div>
+        </section>
+
+    </div>  
 </body>
 </html>
