@@ -32,6 +32,7 @@
         justify-content: center;
         align-items: center;
         height: 170vh;
+        background-color: rgb(214, 214, 214);
     }
 
     .banner{
@@ -520,6 +521,23 @@
         transition: 100ms ease-out;
     }
 
+    #overlay {
+        z-index: 200;
+        position: fixed;
+        opacity: 0;
+        transition: 200ms ease-in-out;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .5);
+        pointer-events: none;
+    }
+
+    #overlay.active {
+        pointer-events: all;
+    }
+
 
 </style>
 
@@ -618,6 +636,8 @@
             </div>
 
         </header>
+
+        <div id="overlay"></div>
 
         <section class="contact">
 
