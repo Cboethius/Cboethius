@@ -228,7 +228,7 @@ peddles1.to('.peddles1',{
 
 
 block1.from('.block1', {
-    repeat: Infinity,
+    repeat: 10,
     autoAlpha:5,
     duration: 2,
     onComplete: function () {
@@ -239,7 +239,7 @@ block2.from('.block2', {
     autoAlpha:5,
     duration: 2,
     delay: 0.1,
-    repeat: Infinity,
+    repeat: 10,
     onComplete: function () {
        block3.play()
     }
@@ -248,7 +248,7 @@ block3.from('.block3', {
     autoAlpha:5,
     duration: 2,
     delay: 0.2,
-    repeat: Infinity,
+    repeat: 10,
     onComplete: function () {
        block4.play()
     }
@@ -257,7 +257,7 @@ block4.from('.block4', {
     autoAlpha:5,
     duration: 2,
     delay: 0.3,
-    repeat: Infinity,
+    repeat: 10,
     onComplete: function () {
        block5.play()
     }
@@ -266,7 +266,7 @@ block5.from('.block5', {
     autoAlpha:5,
     duration: 2,
     delay: 0.4,
-    repeat: Infinity,
+    repeat: 10,
  })
 
 
