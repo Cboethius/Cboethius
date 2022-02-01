@@ -42,42 +42,46 @@ if(document.documentElement.clientWidth > 700 ) {
     })
 }
 
-gsap.registerPlugin(ScrollTrigger);
+const contacts = gsap.timeline()
 
-gsap.to(".map", {
+
+contacts.to(".map", {
     x:-50,
     duration: 3,
     opacity: 100,
-    scrollTrigger:{
-        trigger: ".map",
-        start: "top 60%",
-        end: "top 100%",
-        scrub: 1,
-        toggleActions: "restart reverse none none",
-    //     markers:{
-    //         startColor: "red",
-    //         endColor: "yellow",
-    //         fontSize: "1rem",
-    //     }
-    }
+    scrub: 5,
+    // scrollTrigger:{
+    //     trigger: ".map",
+    //     start: "top 10%",
+    //     end: "bottom 50%",
+    //     scrub: 5,
+    //     toggleActions: "restart reverse none none",
+    //     // markers:{
+    //     //     startColor: "green",
+    //     //     endColor: "yellow",
+    //     //     fontSize: "1rem",
+    //     // }
+    // }
 })
-gsap.to(".contact_text", {
+contacts.to(".contact_text", {
     x: 100,
     opacity: 100,
     duration: 3,
-    scrollTrigger:{
-        trigger: ".contact_text",
-        start: "top 60%",
-        end: "top 100%",
-        scrub: 1,
-        toggleActions: "restart reverse none",
-        // markers:{
-        //     startColor: "red",
-        //     endColor: "yellow",
-        //     fontSize: "1rem",
-        // }
-    }
+    scrub: 5,
+    // scrollTrigger:{
+    //     trigger: ".contact_text",
+    //     start: "top 10%",
+    //     end: "bottom 50%",
+    //     scrub: 5,
+    //     toggleActions: "restart reverse none",
+    //     // markers:{
+    //     //     startColor: "red",
+    //     //     endColor: "yellow",
+    //     //     fontSize: "1rem",
+    //     // }
+    // }
 })
+
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
@@ -114,6 +118,3 @@ function closeModal(modal) {
   modal.classList.remove('active')
   overlay.classList.remove('active')
 }
-
-
-

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banner</title>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/TextPlugin.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" referrerpolicy="no-referrer"></script>
@@ -32,12 +33,12 @@
         justify-content: center;
         align-items: center;
         height: 170vh;
-        background-color: rgb(214, 214, 214);
+        background-color: #222
     }
 
     .banner{
         position: relative;
-        height: 1000px;
+        height: 500px;
         width: 1000px;
         overflow: hidden;
     }
@@ -79,7 +80,7 @@
         flex-direction: column;
         height: 200px;
         width: 100%;
-        z-index: 5;
+        z-index: 75;
     }
 
     .cta a{
@@ -97,13 +98,14 @@
     }
 
     .cta a:hover{
+        cursor: pointer;
         font-size: 1.4rem;
         position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
         background: #1b493c; 
-        height: 50px;
+        height: 60px;
         width: 100px;
         text-decoration: none;
         color: white;
@@ -125,6 +127,9 @@
     
     h2{
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
         color:  white;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 100;
@@ -133,12 +138,13 @@
         background: #1b493c; 
         height: 30px;
         width: 100px;
-        z-index: 5;
+        z-index: 12;
         top:0;
+        transform: translateX(450%);
     }
 
     nav{
-        z-index: 80;
+        z-index: 81;
         position: relative;
         height: 500px;
         width:  100px;
@@ -237,16 +243,15 @@
         opacity: 0;
     }
     
-
     .modal {
-        position: fixed;
+        position: absolute;
         top: 50%;
         left: 50%;
         height: 300px;
         width: 400px;
         transform: translate(-50%, -50%) scale(0);
         transition: 200ms ease-in-out;
-        z-index: 100;
+        z-index: 80;
         background-color: rgba(255, 255, 255, 0.932);
         width: 500px;
         max-width: 80%;
@@ -278,34 +283,44 @@
     .arrowlights {
         position: absolute;
         top: 0;
-        transform: translateX(1385%);
-        margin-top: -5.5rem;
-        height: 152px;
-        width: 15px;
-        z-index: 1;
+        margin-top: 6.1rem;
+        transform: translatex(450%);
+        height: 50px;
+        width: 100px;
+        z-index: 100;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+        flex-direction: row;
+        z-index: 1;
     }
 
-    .arrowlights p{
-        color: white;
-        font-size: 2rem;
+    .location{
+        background-color: #1c4a3d;
+        position: absolute;
+        top: 0;
+        transform: translatex(225%);
+        padding: 1rem;
+        height: 30px;
+        color:white;
+        font-size: 1rem;
         font-family: "mill", Arial, Helvetica, sans-serif;
+        z-index: 100;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .location:hover{
+        border: solid black 2px;
     }
 
     .block{
+        background-color: #1c4a3d;
         display: flex;
-        justify-content: center;
-        height: 10px;
-        width: 6px;
-        opacity: 0;
-    }
-
-    .arrow{
-        height: 10px;
-        width: 10px;
+        height: 6px;
+        width: 20px;
         opacity: 0;
     }
 
@@ -358,13 +373,20 @@
         z-index: 5;
     }
 
+    .open-close{
+        height: 500px;
+        width: 1000px;
+        background-color: black;
+        display: none;
+    }
 
     .contact{
-        position: relative;
-        background-color: #1b493c;
+        background-color: #1c4a3d;
+        position: absolute;
+        top: 0;
         height: 500px;
         width: 100%;
-        z-index: 50;
+        z-index: 120;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -381,9 +403,9 @@
     }
 
     .map img{
-        
         height: 100%;
         width: 100%;
+        opacity: 80;
     }
 
     .flowermap{
@@ -391,6 +413,7 @@
         left: 0;
         height: 30px;
         width: 30px;
+        opacity: 80;
     }
 
     .flowermap1{
@@ -419,6 +442,7 @@
         justify-content: center;;
         flex-direction: column;
         color: white;
+        opacity: 0;
     }
 
     .contact_text h3 {
@@ -435,7 +459,6 @@
         padding: 1rem;
         font-family: "mill";
         font-size: 1.2rem;
-        
     }
 
     p{
@@ -522,7 +545,7 @@
     }
 
     #overlay {
-        z-index: 80;
+        z-index: 76;
         position: fixed;
         opacity: 0;
         transition: 200ms ease-in-out;
@@ -538,6 +561,55 @@
         pointer-events: all;
     }
 
+    span{
+        position: absolute;
+        color: white;
+        top: 0;
+        height: 40px;
+        width: 200px;
+        padding: 1rem;
+        cursor: pointer;
+    }
+
+    .open-animation{
+        position: absolute;
+        height: 500px;
+        width: 1000px;
+        background-color: white;
+        z-index: 100;
+    }
+
+
+    .flowerrotation1{
+        position: relative;
+        height: auto;
+        width: 1000px;
+        transform: translateX(22%);
+    }
+
+    .big1{
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        z-index: 5;
+        transform: translateY(-5%);
+    }
+    
+    .mid1{
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        z-index: 6;
+        transform: translateY(-5%);
+    }
+
+    .small1{
+        position: absolute;
+        height: 500px;
+        width: 500px;
+        z-index: 7;
+        transform: translateY(-5%);
+    }
 
 </style>
 
@@ -545,8 +617,28 @@
 
     <div class="banner">
 
+        <h2>BLUMENHALLE</h2>
+
+        <div class="headtext">
+            <h1></h1>
+        </div>
+
+        <div class="open-animation">
+            <div class="cta">
+                <a href=https://www.blumenhalle.ch>Shop</a>
+            </div>
+            <h2>BLUMENHALLE</h2>
+            <div class="flowerrotation1">
+                <img class="big1" src="images/flowebig.svg" alt="">
+                <img class="mid1" src="images/flowermid.svg" alt="">
+                <img class="small1" src="images/flowersmall.svg" alt="">
+            </div>
+        </div>
+
+        <div class="location">Locations</div>
         <!-- nav bar  -->
          <header>
+
 
             <div class="flowerrotation">
                 <img class="big" src="images/flowebig.svg" alt="">
@@ -608,12 +700,6 @@
                 <img class="modal-flower3" src="images/iris.png" alt="">
              </div>
 
-
-            <div class="headtext">
-                <h1></h1>
-                <h2>BLUMENHALLE</h2>
-            </div>
-
             <div class="cta">
                 <a href=https://www.blumenhalle.ch>Shop</a>
             </div>
@@ -635,51 +721,53 @@
                 <img class="citybot" id="citybot" src="images/Citybottom.svg">
             </div>
 
-        </header>
-
-        <div id="overlay"></div>
-
-        <section class="contact">
-
             <div class="arrowlights">
                 <img class="block block1" src="images/block1.svg" alt="">
                 <img class="block block2" src="images/block2.svg" alt="">
                 <img class="block block3" src="images/block3.svg" alt="">
                 <img class="block block4" src="images/block4.svg" alt="">
                 <img class="block block5" src="images/block5.svg" alt="">
-                <img class="arrow" src="images/arrow.svg" alt="">
-                <p>Locations</p>
             </div>
-            
-            <div class="contact_text">
-                <h3>Geschäfte in <br> meiner Nähe</h3>
 
-                <h4>Blumenhalle Markt
-                    <img class="flower_text" src="images/flowerMap1.svg" alt="">
-                    <p>Molkenstrasse 17 * 043 243 88 15</p>
-                </h4>
+        </header>
 
-                <h4> Blumenhalle Spring AG
-                    <img class="flower_text" src="images/flowerMap.svg" alt="">
-                    <p>
-                        Talacker 30 * 044 211 71 46</p>
-                </h4>
+        <div id="overlay"></div>
 
-                <h4>Blumenhalle Wollishofen AG
-                    <img class="flower_text" src="images/flowerMap2.svg" alt="">
-                    <p>Studackerstrasse 8 * 044 482 41 42</p>
-                </h4>
+        <div class="open-close"><div>
+
+            <section class="contact">
                 
-            </div>
-            <div class="map">
-                <img src="images/map.svg" alt="">
-                <div class="flowermap">
-                    <img class="flowermap1" src="images/flowerMap.svg" alt="">
-                    <img class="flowermap2" src="images/flowerMap1.svg" alt="">
-                    <img class="flowermap3" src="images/flowerMap2.svg" alt="">
+                <span class="close1">Zurück</span>
+
+                <div class="contact_text">
+                    <h3>Geschäfte in <br> meiner Nähe</h3>
+
+                    <h4>Blumenhalle Markt
+                        <img class="flower_text" src="images/flowerMap1.svg" alt="">
+                        <p>Molkenstrasse 17 * 043 243 88 15</p>
+                    </h4>
+
+                    <h4> Blumenhalle Spring AG
+                        <img class="flower_text" src="images/flowerMap.svg" alt="">
+                        <p>Talacker 30 * 044 211 71 46</p>
+                    </h4>
+
+                    <h4>Blumenhalle Wollishofen AG
+                        <img class="flower_text" src="images/flowerMap2.svg" alt="">
+                        <p>Studackerstrasse 8 * 044 482 41 42</p>
+                    </h4>
+                    
                 </div>
-            </div>
-        </section>
+                <div class="map">
+                    <img src="images/map.svg" alt="">
+                    <div class="flowermap">
+                        <img class="flowermap1" src="images/flowerMap.svg" alt="">
+                        <img class="flowermap2" src="images/flowerMap1.svg" alt="">
+                        <img class="flowermap3" src="images/flowerMap2.svg" alt="">
+                    </div>
+                </div>
+
+            </section>
 
     </div>  
 </body>
