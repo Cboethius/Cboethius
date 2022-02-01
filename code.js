@@ -64,7 +64,7 @@ flower_animation.from('.big1, .mid1, .small1', {
 nav_bar.from('.nav', {
     width: 0, 
     x: -550, 
-    duration: 1,
+    duration: 0.3,
     onComplete: function () {
         menu.play()
     }
@@ -73,7 +73,7 @@ nav_bar.from('.nav', {
 // 2)
 menu.from('.nav div',{
     x: 80,
-    duration: 1,
+    duration: 0.1,
     stagger: {
     amount: 2,
     from: '-7',
@@ -84,7 +84,7 @@ menu.from('.nav div',{
 
 menu1.from('.nav div',{
     autoAlpha: 1,
-    duration: 0.5
+    duration: 0.2,
 },{
     autoAlpha: 1,
     duration:0.1,
